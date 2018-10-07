@@ -1,9 +1,9 @@
 # laravel-password
 
-[![Latest Stable Version](https://poser.pugx.org/unicodeveloper/laravel-password/v/stable.svg)](https://packagist.org/packages/unicodeveloper/laravel-password)
-[![License](https://poser.pugx.org/unicodeveloper/laravel-password/license.svg)](LICENSE.md)
-[![Quality Score](https://img.shields.io/scrutinizer/g/unicodeveloper/laravel-password.svg?style=flat-square)](https://scrutinizer-ci.com/g/unicodeveloper/laravel-password)
-[![Total Downloads](https://img.shields.io/packagist/dt/unicodeveloper/laravel-password.svg?style=flat-square)](https://packagist.org/packages/unicodeveloper/laravel-password)
+[![Latest Stable Version](https://poser.pugx.org/diegomagikal/laravel-password/v/stable.svg)](https://packagist.org/packages/diegomagikal/laravel-password)
+[![License](https://poser.pugx.org/diegomagikal/laravel-password/license.svg)](LICENSE.md)
+[![Quality Score](https://img.shields.io/scrutinizer/g/diegomagikal/laravel-password.svg?style=flat-square)](https://scrutinizer-ci.com/g/diegomagikal/laravel-password)
+[![Total Downloads](https://img.shields.io/packagist/dt/diegomagikal/laravel-password.svg?style=flat-square)](https://packagist.org/packages/diegomagikal/laravel-password)
 
 > #### Guard your users from security problems by preventing them from having dumb passwords
 
@@ -23,7 +23,7 @@ about all [ here](https://xato.net/10-000-top-passwords-6d6380716fe0#.473dkcjfm)
 To get the latest version of Laravel Password, simply add the following line to the require block of your `composer.json` file.
 
 ```
-"unicodeveloper/laravel-password": "1.0.*"
+"diegomagikal/laravel-password": "*"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
@@ -32,12 +32,12 @@ You'll then need to run `composer install` or `composer update` to download it a
 - If you're on Laravel < 5.5, you'll need to register the service provider. Open up `config/app.php` and add the following to the `providers` array:
 
 ```php
-Unicodeveloper\DumbPassword\DumbPasswordServiceProvider::class
+DiegoMagikal\CheckPassword\CheckPasswordServiceProvider::class
 ```
 
 ## Usage
 
-Use the rule `dumbpwd` in your validation like so:
+Use the rule `checkpassword` in your validation like so:
 
 ```php
 /**
@@ -51,7 +51,7 @@ protected function validator(array $data)
     return Validator::make($data, [
         'name' => 'required|max:255',
         'email' => 'required|email|max:255|unique:users',
-        'password' => 'required|min:6|dumbpwd|confirmed',
+        'password' => 'required|min:6|checkpassword|confirmed',
     ]);
 }
 ```
@@ -67,7 +67,7 @@ By default, the error message returned is `This password is just too common. Ple
 You can customize the error message by opening `resources/lang/en/validation.php` and adding to the array like so:
 
 ```php
-  'dumbpwd' => 'You are using a dumb password abeg',
+  'checkpassword' => 'You are using a dumb password abeg',
 ```
 
 ## Change log
@@ -80,16 +80,11 @@ Please feel free to fork this package and contribute by submitting a pull reques
 
 ## Inspiration
 
-* [Eugene Mutai](https://github.com/kn9ts/dumb-passwords)
+* [Prosper Otemuyiwa](https://github.com/unicodeveloper/laravel-password)
 
 ## How can I thank you?
 
-Why not star the github repo? I'd love the attention! Why not share the link for this repository on Twitter or HackerNews? Spread the word!
-
-Don't forget to [follow me on twitter](https://twitter.com/unicodeveloper)!
-
-Thanks!
-Prosper Otemuyiwa.
+Why not star the github repo? I'd love the attention! 
 
 ## License
 

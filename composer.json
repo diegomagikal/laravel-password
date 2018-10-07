@@ -1,16 +1,31 @@
 {
-    "name": "unicodeveloper/laravel-password",
+    "name": "diegomagikal/laravel-password",
     "type": "library",
     "description": "Protect your users from entering dumb and common passwords",
     "keywords": [
-        "unicodeveloper",
+        "DiegoMagikal",
         "passwords",
+        "password",
+        "senha",
         "security",
-        "dumb"
+        "dumb",
+        "easy",
+        "facile",
+        "palavra-passe",
+        "fool",
+        "insecure",
+        "insegura",
+        "stupid"
     ],
-    "homepage": "https://github.com/unicodeveloper/laravel-password",
+    "homepage": "https://github.com/diegomagikal/laravel-password",
     "license": "MIT",
     "authors": [
+        {
+            "name": ":Diego Luiz",
+            "email": "magikaldesign@gmail.com",
+            "homepage": "http://magikal.com",
+            "role": "Developer"
+        },
         {
             "name": ":Prosper Otemuyiwa",
             "email": "prosperotemuyiwa@gmail.com",
@@ -28,12 +43,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Unicodeveloper\\DumbPassword\\": "src"
+            "DiegoMagikal\\CheckPassword\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Unicodeveloper\\DumbPassword\\Test": "tests"
+            "DiegoMagikal\\CheckPassword\\Test": "tests"
         }
     },
     "scripts": {
@@ -45,7 +60,7 @@
         },
         "laravel": {
             "providers": [
-                "Unicodeveloper\\DumbPassword\\DumbPasswordServiceProvider"
+                "DiegoMagikal\\CheckPassword\\CheckPasswordServiceProvider"
             ]
         }
     }

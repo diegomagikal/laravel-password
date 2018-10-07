@@ -4,18 +4,19 @@
  * This file is part of the Laravel Password package.
  *
  * (c) Prosper Otemuyiwa <prosperotemuyiwa@gmail.com>
+ * Modified by Diego Luiz
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Unicodeveloper\DumbPassword;
+namespace DiegoMagikal\CheckPassword;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use Validator;
 
-class DumbPasswordServiceProvider extends ServiceProvider
+class CheckPasswordServiceProvider extends ServiceProvider
 {
     /*
     * Indicates if loading of the provider is deferred.
@@ -36,10 +37,10 @@ class DumbPasswordServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('dumbpwd', function ($attribute, $value, $parameters, $validator) {
+        Validator::extend('checkpassword', function ($attribute, $value, $parameters, $validator) {
             $path = realpath(__DIR__ . '/../resources/config/passwordlist.txt');
             $cache_key = md5_file($path);
-            $data = Cache::rememberForever('dumbpwd_list_' . $cache_key, function () use ($path) {
+            $data = Cache::rememberForever('checkpassword_list_' . $cache_key, function () use ($path) {
                 return collect(explode("\n", file_get_contents($path)));
             });
             return !$data->contains($value);
